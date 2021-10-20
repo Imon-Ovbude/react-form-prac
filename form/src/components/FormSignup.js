@@ -3,7 +3,7 @@ import useForm from '../hooks/useForm';
 import validate from '../validateInfo';
 
 const FormSignup = () => {
-  const { handleChange, handleSubmit, values } = useForm();
+  const { handleChange, handleSubmit, values } = useForm(validate);
 
   return (
     <div className='form-content-right'>
