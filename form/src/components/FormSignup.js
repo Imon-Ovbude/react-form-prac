@@ -2,8 +2,10 @@ import React from 'react';
 import useForm from '../hooks/useForm';
 import validate from '../validateInfo';
 
+import './Form.css';
+
 const FormSignup = () => {
-  const { handleChange, handleSubmit, values } = useForm(validate);
+  const { handleChange, handleSubmit, values, errors } = useForm(validate);
 
   return (
     <div className='form-content-right'>
@@ -12,6 +14,7 @@ const FormSignup = () => {
           Get started with us today! Create your account by filling out the
           information below.
         </h1>
+        {/* username */}
         <div className='form-inputs'>
           <label htmlFor='username' className='form-label'>
             Username:
@@ -25,7 +28,10 @@ const FormSignup = () => {
             value={values.username}
             onChange={handleChange}
           />
+          {errors.username ? <p>{errors.username}</p> : ''}
         </div>
+
+        {/* email */}
         <div className='form-inputs'>
           <label htmlFor='email' className='form-label'>
             Email:
@@ -39,7 +45,10 @@ const FormSignup = () => {
             value={values.email}
             onChange={handleChange}
           />
+          {errors.email ? <p>{errors.email}</p> : ''}
         </div>
+
+        {/* password */}
         <div className='form-inputs'>
           <label htmlFor='password' className='form-label'>
             Password:
@@ -53,7 +62,10 @@ const FormSignup = () => {
             value={values.password}
             onChange={handleChange}
           />
+          {errors.password ? <p>{errors.password}</p> : ''}
         </div>
+
+        {/* password2 */}
         <div className='form-inputs'>
           <label htmlFor='password2' className='form-label'>
             Confirm Password:
@@ -67,7 +79,9 @@ const FormSignup = () => {
             value={values.password2}
             onChange={handleChange}
           />
+          {errors.password ? <p>{errors.password2}</p> : ''}
         </div>
+
         <button className='form-input-btn' type='submit'>
           Sign Up
         </button>
