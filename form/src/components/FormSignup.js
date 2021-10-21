@@ -4,8 +4,11 @@ import validate from '../validateInfo';
 
 import './Form.css';
 
-const FormSignup = () => {
-  const { handleChange, handleSubmit, values, errors } = useForm(validate);
+const FormSignup = submitForm => {
+  const { handleChange, handleSubmit, values, errors } = useForm(
+    validate,
+    submitForm
+  );
 
   return (
     <div className='form-content-right'>
